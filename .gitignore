@@ -1,0 +1,41 @@
+# 操作系统 / 编辑器垃圾文件
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+.Spotlight-V100
+.Trashes
+*.swp
+*~
+
+# 日志
+*.log
+
+# Godot generated caches and local portable engine
+godot-fish/.godot/
+godot-fish/export_templates/
+godot-fish/feature_profiles/
+godot-fish/script_templates/
+godot-fish/text_editor_themes/
+.tmp/godot-runtime/
+.tmp/godot-fish-web/
+
+# 本地打包与生成缓存不进入 GitHub
+*.zip
+.tmp/
+
+# 统一网页仓库只发布浏览器直接使用的成品资源
+assets/birds/
+bird-observation/runtime/
+bird-observation/launcher.py
+bird-observation/*.cmd
+运行科学3D课堂.cmd
+
+# Godot 源工程、制作工具和阶段性原型保留在本地
+/godot-fish/
+/godot-respiratory/
+/godot-digestive/
+/保存模型/
+/tools/
+/koi-showcase/
+/lotus-koi-observation/
