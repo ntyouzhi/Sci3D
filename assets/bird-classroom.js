@@ -10,6 +10,7 @@
   if(!active&&frame){frame.remove();frame=null;}
  }
  function select(value){
+  if(value)window.ScienceInsectObservation?.select(false);
   selected=value;document.body.classList.toggle('observing-birds',value);stage.hidden=!value;document.getElementById('birds-entry').classList.toggle('active',value);
   if(value){document.querySelectorAll('[data-organ].active').forEach(item=>item.classList.remove('active'));window.ScienceFishObservation?.select('birds');window.ScienceRespiratoryObservation?.select('birds');window.ScienceDigestiveObservation?.select('birds');if(window.__VISCERA_VIEWER__)window.__VISCERA_VIEWER__.isVisible=false;document.getElementById('loader').hidden=true;document.getElementById('library').classList.remove('open');}
   sync();

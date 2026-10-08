@@ -2,6 +2,7 @@
 (() => {
 'use strict';
 let T=window.THREE;const $=id=>document.getElementById(id);
+function notifyClassroom(){if(window.parent!==window)window.parent.postMessage({type:'insect-observation-ready'},location.origin)}
 const insectData={
  bee:{name:'蜜蜂',sub:'原始动画 · 扇翅观察',latin:'Honeybee · 原绑定动画',dynamic:true,title:'扇翅时，身体和足怎样变化？',description:'保留蜜蜂模型原有骨骼动作和贴图。连续播放后可暂停、慢放，观察翅、触角和六足的姿态变化。网页采用轻量版本，不加载大型动画缓存和粒子毛发。',chips:['原始骨骼动画','贴图材质','暂停慢放'],question:'蜜蜂的翅和三对足连接在哪个部位？',clue:'翅和足连接在胸部。转动模型观察头、胸和腹的区别。此模型的动作不是实测飞行数据；轻量网页版不保留原粒子毛发。'},
  ladybug3d:{name:'七星瓢虫',sub:'原始贴图 · 三维观察',latin:'Coccinella · 原材质模型',embedded:true,title:'数一数背上的黑色斑点',description:'这是新提供的七星瓢虫模型，保留原始红黑贴图、触角、六足和鞘翅细节。可以旋转、放大，或切换到俯视观察背部斑点和中央接缝。',chips:['原始贴图','圆拱鞘翅','六足观察'],question:'两片鞘翅在哪里分开？',clue:'俯视观察背部中央的接缝。坚硬的鞘翅保护下方的膜质后翅。这份文件有绑定但没有自带动画，本次先展示原始静态姿态。'},
@@ -36,7 +37,7 @@ function animationCommand(action,value){animationFrame?.contentWindow?.postMessa
 function animationButtons(){const action=key==='ant'?'爬行':'连续动作';$('animation-play').textContent=(animationPaused?'继续':'暂停')+action;$('animation-play').setAttribute('aria-pressed',String(animationPaused));$('animation-speed').value=animationSpeed;$('animation-speed-text').textContent=animationSpeed+'×'}
 window.addEventListener('message',event=>{
  if(!animationFrame||event.source!==animationFrame.contentWindow)return;
- if(event.data?.type==='insect-animation-ready'){$('loading').hidden=true;window.insectViewer.ready=true;window.insectViewer.key=key;$('animation-play').disabled=false;$('animation-speed').disabled=false;animationCommand('angle','free');if(key==='butterfly')animationCommand('clip','Continuous cycle')}
+ if(event.data?.type==='insect-animation-ready'){$('loading').hidden=true;window.insectViewer.ready=true;window.insectViewer.key=key;$('animation-play').disabled=false;$('animation-speed').disabled=false;animationCommand('angle','free');if(key==='butterfly')animationCommand('clip','Continuous cycle');notifyClassroom()}
  if(event.data?.type==='insect-animation-error'){$('loading').innerHTML='<b>动画未能加载，请刷新重试</b>'}
  if(event.data?.type==='insect-animation-state'){animationPaused=event.data.paused;animationSpeed=event.data.speed;if(key==='butterfly'&&event.data.clip)animationClip=event.data.clip;animationButtons()}
 });
@@ -234,7 +235,7 @@ async function select(id){
   scene.children.forEach(o=>{if(o.geometry?.type==='CircleGeometry')o.position.y=floor;if(o.geometry?.type==='RingGeometry')o.position.y=floor+.005;if(o.type==='GridHelper')o.position.y=floor-.01});
   const param=new URLSearchParams(location.search);param.set('insect',id);try{history.replaceState(null,'','?'+param)}catch(e){}
   labels();angle('free');$('loading').hidden=true;
-  window.insectViewer.ready=true;window.insectViewer.key=id;window.insectViewer.triangles=source.triangles;
+  window.insectViewer.ready=true;window.insectViewer.key=id;window.insectViewer.triangles=source.triangles;notifyClassroom();
  }catch(e){if(request!==serial)return;$('loading').innerHTML='<b>模型未能加载</b><p>请检查网络或文件夹是否完整，再点一次昆虫重试。</p>';console.error(e)}
 }
 function angle(type){rotation=0;syncButtons();if(dynamicActive()){animationCommand('angle',type);document.querySelectorAll('[data-angle]').forEach(b=>b.classList.toggle('selected',b.dataset.angle===type));return}if(!controls)return;const damping=controls.enableDamping;controls.autoRotate=false;controls.enableDamping=false;controls.update();controls.target.set(0,.05,0);const views={free:[4.7,5.3,6.3],top:[0,10.8,.001],side:[10.8,1.1,0],front:[0,1.5,10.8]};camera.up.set(0,1,0);camera.position.fromArray(views[type]);controls.update();controls.enableDamping=damping;document.querySelectorAll('[data-angle]').forEach(b=>b.classList.toggle('selected',b.dataset.angle===type))}
