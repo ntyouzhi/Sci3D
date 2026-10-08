@@ -1,0 +1,11 @@
+# Keep editable source exports locally; browsers load compressed or embedded copies.
+/animations/*.glb
+# Superseded specimens are not part of the published classroom.
+/models/ant.js
+/models/bug.js
+/models/flea.js
+/models/wasp.js
+/models/ladybug.js
+/models/ladybug.bin.gz
+/models/report.json
+/models/replacements-report.json

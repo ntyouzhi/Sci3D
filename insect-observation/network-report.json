@@ -1,0 +1,50 @@
+{
+  "fly": {
+    "original": 1722648,
+    "network": 733699
+  },
+  "cricket": {
+    "original": 1582159,
+    "network": 832499
+  },
+  "dragonfly": {
+    "original": 1604116,
+    "network": 696134
+  },
+  "stag": {
+    "original": 1575498,
+    "network": 822472
+  },
+  "ladybug": {
+    "original": 2654686,
+    "network": 1305853
+  },
+  "three": {
+    "original": 1402968,
+    "network": 274281
+  },
+  "viewer": {
+    "original": 1068754,
+    "network": 291013
+  },
+  "ant": {
+    "original": 4670168,
+    "network": 2764205
+  },
+  "butterfly": {
+    "original": 9663828,
+    "network": 3960006
+  },
+  "firefly": {
+    "original": 1423484,
+    "network": 925791
+  },
+  "ladybug3d": {
+    "original": 1912140,
+    "network": 1502981
+  },
+  "bee": {
+    "original": 1312424,
+    "network": 1068876
+  }
+}

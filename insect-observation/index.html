@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eef1e8"><title>昆虫观察台 · 小学科学3D课堂</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='31' font-size='32'%3E☘%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=27"><link rel="stylesheet" href="bird-style.css?v=27">
+</head>
+<body>
+  <header class="masthead"><h1>昆虫观察</h1><div class="collection"><nav id="dynamic-list" aria-label="动态昆虫观察"><h3 class="group-heading">动态观察</h3></nav><nav id="species-list" aria-label="静态昆虫观察"><h3 class="group-heading">静态观察</h3></nav></div><button id="fullscreen" class="quiet">全屏观察 ↗</button></header>
+  <main class="workspace">
+    <section class="stage-shell" aria-label="三维昆虫观察区">
+      <div class="stage-top"><span class="specimen-tag" id="specimen-tag">SPECIMEN / 01</span><span class="material-tag" id="material-tag">示意着色</span></div>
+      <div id="stage"><div id="labels" aria-label="身体结构标注"></div><div class="loading" id="loading" role="status"><span></span><b>正在准备模型…</b></div></div>
+      <div class="stage-caption"><div><h2 id="stage-name">家蝇</h2><p id="latin">Musca domestica</p></div><button id="spin" aria-pressed="false" class="round-button" title="自动旋转">↻ <span>自动旋转</span></button></div>
+      <div class="toolbar"><div class="angle-buttons" role="group" aria-label="观察角度"><button data-angle="free" class="selected">立体</button><button data-angle="top">俯视</button><button data-angle="side">侧视</button><button data-angle="front">正面</button></div><div class="tool-buttons"><button id="zoom-in" title="放大" aria-label="放大">＋</button><button id="zoom-out" title="缩小" aria-label="缩小">−</button><button id="reset">复位</button></div></div>
+      <p class="gesture-hint">拖动旋转 · 滚轮缩放 · 双指缩放与平移</p>
+    </section>
+    <aside class="field-notes"><p class="eyebrow">观察笔记</p><h2 id="note-title">它的“细腰”在哪里？</h2><p id="description"></p><div class="feature-chips" id="chips"></div><div class="divider"></div><h3 id="controls-title">换一种方式看</h3><div class="switches"><button id="color" class="switch active" aria-pressed="true"><span>示意着色</span><i></i></button><button id="annotation" class="switch" aria-pressed="false"><span>头 · 胸 · 腹标注</span><i></i></button><button id="wire" class="switch" aria-pressed="false"><span>网格线框</span><i></i></button></div><div id="animation-controls" hidden><button id="animation-play" class="animation-play" disabled>暂停爬行</button><label for="animation-speed">动作速度 <output id="animation-speed-text">1×</output></label><input id="animation-speed" type="range" min="0.25" max="1.5" step="0.25" value="1" disabled><p>慢放看足的交替，暂停看支撑姿态。</p></div><div class="question-card"><span>想一想</span><p id="question"></p><button id="reveal" aria-expanded="false">查看观察线索 <span>＋</span></button><p id="clue" hidden></p></div><p class="color-note">颜色为观察演示配色，非原模型贴图；模型以相近大小展示，不代表真实体型比例。</p></aside>
+  </main>
+  <script src="asset-loader.js?v=27"></script><script src="app.js?v=28"></script>
+</body>
+</html>

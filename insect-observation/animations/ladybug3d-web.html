@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七星瓢虫原材质观察</title><style>html,body{margin:0;height:100%;background:#edf2ed}#viewer{width:100%;height:100%;background:radial-gradient(circle,#f9fcf7 0,#edf2ed 68%);--poster-color:#edf2ed}#viewer::part(default-progress-bar){background:#42664c}</style></head><body><model-viewer id="viewer" data-species="ladybug3d" alt="七星瓢虫原始红黑贴图静态模型" camera-controls environment-image="neutral" camera-orbit="35deg 68deg auto" shadow-softness=".85" interaction-prompt="none"></model-viewer><script src="../asset-loader.js?v=27"></script><script src="../ant-bridge.js?v=27"></script><script id="network-loader">
+(async()=>{let blobUrl;try{
+ const [runtime,model]=await Promise.all([insectAssets.unpack('../vendor/model-viewer.js.gz'),insectAssets.unpack('ladybug3d.glb.gz')]);
+ const codeUrl=URL.createObjectURL(new Blob([runtime],{type:'text/javascript'}));await insectAssets.script(codeUrl);URL.revokeObjectURL(codeUrl);
+ await customElements.whenDefined('model-viewer');blobUrl=URL.createObjectURL(new Blob([model],{type:'model/gltf-binary'}));
+ document.getElementById('viewer').src=blobUrl;window.addEventListener('pagehide',()=>URL.revokeObjectURL(blobUrl),{once:true});
+}catch(e){parent.postMessage({type:'insect-animation-error'},'*');console.error(e)}})();
+</script></body></html>

@@ -1,0 +1,34 @@
+黑色蚂蚁动画来源（沿用原离线成品的来源记录）：
+Walking Ant — kenchoo
+https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe
+CC BY-NC 4.0 — https://creativecommons.org/licenses/by-nc/4.0/
+
+模型内原始来源：Cartoon Ant — MAXDESIGN-3D
+https://sketchfab.com/3d-models/cartoon-ant-e39edf02d1784aaf8c06ebc4de512084
+CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+
+本地修改：外观改成黑色；动画保持原成品动作。
+用于非商业教学，保留双方署名。
+
+静态昆虫：用户购买的60款昆虫和甲虫3D模型资源包。
+商品标注仅供学习交流使用；公开分发前须确认许可。
+
+蝴蝶：用户提供的“A-6蝴蝶+材质+绑定”资源，作者和物种未核实。
+保留原模型、绑定及四张原贴图；由同套OBJ恢复材质分组和UV。
+原FBX没有动画，地面扇翅、空中悬停、缓缓落地和小步走动
+均为本地制作的教学示意，不作为真实物种运动数据的依据。
+网页副本增加翅膀细分与柔曲权重；未改变用户原始资源文件。
+公开分发前须确认原资源许可。
+
+Three.js / OrbitControls: MIT (vendor/LICENSE)
+model-viewer 4.3.1: Apache-2.0 (vendor/model-viewer-LICENSE)
+萤火虫动态资源：用户提供的 A491萤火虫/luciola-lateralis-japanese-fire-fly.blend。
+基于原骨骼与动作增加悬停、开翅扇动和起落教学示意；保留原贴图与腹部发光材质。
+加入固定淡色地面参照；只生成网页副本，不修改源文件。
+网页贴图经过尺寸及编码优化；发光不是实测强度与节律。
+原作者、物种信息及公开分发许可未完成核实，发布前需确认授权。
+
+蜜蜂：用户提供的 蜜蜂/uploads_files_3053075_honeybee-animation-eeveerender.blend。
+网页保留原骨骼动画与压缩贴图；不携带粒子毛发或大型Alembic缓存。
+只生成网页副本，不修改源文件。原作者及公开分发许可尚未核实。
+
