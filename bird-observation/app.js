@@ -5,8 +5,16 @@ const introductions={
  eagle:{title:'老鹰',text:'本模型表现的是草原雕一类的大型猛禽。它拥有敏锐的视觉、弯曲而有力的喙和强壮的利爪，适合发现、捕捉并撕取食物。宽大的翅膀能够利用上升气流长时间滑翔，从高空巡视广阔区域。'},
  kingfisher:{title:'翠鸟',text:'观察翠鸟模型的长直喙、蓝绿色背羽和较短的腿。它会连续完成站立、起飞、振翅飞行、降落，再回到站立。试试慢放，从背面和上方比较翅膀上举、下压与收拢时的形状变化。'}
 };
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
-if(navigator.storage?.persist)navigator.storage.persist().catch(()=>{});
+// 离线缓存是可选增强：嵌入课堂的隔离页面可能在读取接口时同步抛出异常。
+// 此时继续通过普通请求加载模型，避免缓存权限阻断整个课件。
+try {
+ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+ }
+} catch { /* 当前嵌入环境不提供 Service Worker，继续加载模型。 */ }
+try {
+ if (navigator.storage?.persist) navigator.storage.persist().catch(() => {});
+} catch { /* 持久缓存不可用时使用普通加载。 */ }
 const requested=new URLSearchParams(location.search).get('bird'),bird=Object.hasOwn(birds,requested)?requested:'crane';
 document.body.dataset.bird=bird;document.title='鸟类观察 · '+birds[bird];document.getElementById('view').setAttribute('aria-label',birds[bird]+'三维模型');
 document.querySelector(`nav [data-bird="${bird}"]`).setAttribute('aria-current','page');
