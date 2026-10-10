@@ -6,7 +6,7 @@
  let selected=false,frame;
  function sync(){
   const active=selected&&document.body.dataset.domain==='life';
-  if(active&&!frame){loading.hidden=false;loading.querySelector('b').textContent='正在连接鸟类观察…';frame=document.createElement('iframe');frame.title='鸟类观察：丹顶鹤、绿头鸭、老鹰';const local=new URLSearchParams(location.search).get('local')==='1';frame.src=`bird-observation/?embedded=1${local?'&local=1':''}`;frame.allow='fullscreen';frame.addEventListener('load',()=>{loading.querySelector('b').textContent='鸟类页面已打开，模型资源正在加载…'});stage.replaceChildren(frame,loading);}
+  if(active&&!frame){loading.hidden=false;loading.querySelector('b').textContent='正在连接鸟类观察…';frame=document.createElement('iframe');frame.title='鸟类观察：丹顶鹤、绿头鸭、老鹰、翠鸟';const params=new URLSearchParams(location.search),local=params.get('local')==='1',bird=params.get('bird');frame.src=`bird-observation/?embedded=1${local?'&local=1':''}${['crane','mallard','eagle','kingfisher'].includes(bird)?'&bird='+bird:''}`;frame.allow='fullscreen';frame.addEventListener('load',()=>{loading.querySelector('b').textContent='鸟类页面已打开，模型资源正在加载…'});stage.replaceChildren(frame,loading);}
   if(!active&&frame){frame.remove();frame=null;}
  }
  function select(value){

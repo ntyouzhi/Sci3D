@@ -1,8 +1,9 @@
-const birds={crane:'丹顶鹤',mallard:'绿头鸭',eagle:'老鹰'};
+const birds={crane:'丹顶鹤',mallard:'绿头鸭',eagle:'老鹰',kingfisher:'翠鸟'};
 const introductions={
  crane:{title:'丹顶鹤',text:'丹顶鹤是一种大型涉禽，常活动于开阔的沼泽、湿地和浅水地带。它具有修长的颈、喙和腿，便于在浅水中行走并寻找鱼、虾、昆虫和植物等食物。成鸟头顶部裸露的红色皮肤，是最醒目的外形特征之一。'},
  mallard:{title:'绿头鸭',text:'绿头鸭是常见的游禽。雄鸟通常有富有金属光泽的绿色头部，雌鸟多呈褐色斑驳羽色，便于隐蔽。它的蹼足适合划水，宽而扁的喙有助于从水中筛取植物、种子和小型水生动物。'},
- eagle:{title:'老鹰',text:'本模型表现的是草原雕一类的大型猛禽。它拥有敏锐的视觉、弯曲而有力的喙和强壮的利爪，适合发现、捕捉并撕取食物。宽大的翅膀能够利用上升气流长时间滑翔，从高空巡视广阔区域。'}
+ eagle:{title:'老鹰',text:'本模型表现的是草原雕一类的大型猛禽。它拥有敏锐的视觉、弯曲而有力的喙和强壮的利爪，适合发现、捕捉并撕取食物。宽大的翅膀能够利用上升气流长时间滑翔，从高空巡视广阔区域。'},
+ kingfisher:{title:'翠鸟',text:'观察翠鸟模型的长直喙、蓝绿色背羽和较短的腿。它会连续完成站立、起飞、振翅飞行、降落，再回到站立。试试慢放，从背面和上方比较翅膀上举、下压与收拢时的形状变化。'}
 };
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 if(navigator.storage?.persist)navigator.storage.persist().catch(()=>{});

@@ -12,7 +12,7 @@ self.addEventListener('fetch',event=>{
  if(request.method!=='GET')return;
  const url=new URL(request.url);
  if(url.origin!==location.origin||url.pathname.endsWith('/__heartbeat'))return;
- if(!/\.(?:bin|gz|png|jpe?g|webp)$/i.test(url.pathname))return;
+ if(!/\.(?:bin|glb|gz|png|jpe?g|webp)$/i.test(url.pathname))return;
  event.respondWith((async()=>{
   const cache=await caches.open(CACHE_NAME),cached=await cache.match(request);
   if(cached)return cached;
